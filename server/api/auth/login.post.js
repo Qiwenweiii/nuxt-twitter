@@ -3,12 +3,7 @@ import { getUserByUsername } from '~~/server/db/users';
 export default defineEventHandler(async (event) => {
   const body = await useBody(event);
 
-  // Todo: 数据处理
-  console.log(body.username);
-
-  // const { username, password } = body;
-  const username = body.username;
-  const password = body.password;
+  const { username, password } = body;
 
   console.log(username, password);
 
@@ -29,7 +24,7 @@ export default defineEventHandler(async (event) => {
       event,
       createError({
         statusCode: 400,
-        statusMessage: 'Invalid username or password1111',
+        statusMessage: 'Username or password is invalid',
       })
     );
   }

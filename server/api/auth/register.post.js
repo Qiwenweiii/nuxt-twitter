@@ -4,6 +4,9 @@ import { userTransformer } from '~~/server/transformers/user';
 export default defineEventHandler(async (event) => {
   const body = await useBody(event);
 
+  // 一个普通对象
+  console.log(body);
+
   const { username, email, password, repeatPassword, name } = body;
 
   if (!username || !email || !password || !repeatPassword || !name) {
